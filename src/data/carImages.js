@@ -33,9 +33,12 @@ const IMAGES = {
   yariscross_nightshade: "/images/yariscross_nightshade.jpg",
 };
 
+const BASE = import.meta.env.BASE_URL;
+
 export function carImage(code) {
-  const src = IMAGES[code];
-  if (!src) return null;
+  const path = IMAGES[code];
+  if (!path) return null;
+  const src = `${BASE}images/${path.split('/').pop()}`;
   const base = src.replace('.jpg', '');
   return {
     src,
