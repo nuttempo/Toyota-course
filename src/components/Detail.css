@@ -1,60 +1,80 @@
 .detail-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 200;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: var(--z-overlay);
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 20px;
+  padding: var(--space-5);
+  backdrop-filter: blur(4px);
+  animation: fadeIn var(--duration-fast) var(--ease-out);
 }
 
 .detail-popup {
-  background: white;
-  border-radius: 16px;
-  padding: 20px 24px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
-  max-width: 500px;
+  background: var(--surface-card);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6) var(--space-7);
+  box-shadow: var(--shadow-xl);
+  max-width: 540px;
   width: 100%;
-  font-size: 0.9rem;
-  border: 2px solid var(--grey-border);
+  font-size: var(--text-base);
+  animation: slideUp var(--duration-normal) var(--ease-out);
+  max-height: 75vh;
+  overflow-y: auto;
 }
 
 .detail-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 8px;
+  margin-bottom: var(--space-4);
+  gap: var(--space-3);
 }
 
 .detail-title {
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.4;
+  font-size: var(--text-xl);
 }
 
-.detail-icon {
-  font-size: 1.2rem;
-}
+.detail-icon { font-size: 1.4rem; }
 
 .detail-close {
   background: none;
   border: none;
-  font-size: 1.2rem;
   cursor: pointer;
-  padding: 0 4px;
-  color: #888;
+  padding: var(--space-1);
+  color: var(--text-tertiary);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
 }
 
 .detail-close:hover {
-  color: var(--black);
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.detail-close:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
 }
 
 .detail-body {
-  line-height: 1.7;
-  font-size: 0.88rem;
-  color: #444;
+  line-height: 1.8;
+  font-size: var(--text-base);
+  color: var(--text-secondary);
 }
 
-.detail-body strong {
-  color: var(--black);
+.detail-body strong { color: var(--text-primary); }
+
+@media (min-width: 600px) {
+  .detail-overlay { align-items: center; }
+  .detail-popup { animation: scaleIn var(--duration-normal) var(--ease-out); }
 }

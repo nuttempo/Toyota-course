@@ -7,19 +7,22 @@
 .app-body {
   display: flex;
   flex: 1;
-  padding-top: 56px;
+  padding-top: 60px;
 }
 
 .app-content {
   flex: 1;
-  padding: 24px 16px 80px;
-  max-width: 860px;
+  padding: var(--space-6) var(--space-5) 80px;
+  max-width: 880px;
   margin: 0 auto;
   width: 100%;
+  animation: fadeIn var(--duration-slow) var(--ease-out);
 }
+
+.app-content:focus { outline: none; }
 
 @media (max-width: 768px) {
   .app-content {
-    padding: 16px 12px 80px;
+    padding: var(--space-4) var(--space-3) 80px;
   }
 }

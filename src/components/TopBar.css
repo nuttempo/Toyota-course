@@ -3,77 +3,75 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: var(--z-topbar);
   background: var(--black);
-  color: white;
-  padding: 0 16px;
-  height: 56px;
+  color: var(--white);
+  padding: 0 var(--space-5);
+  height: 60px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-3);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
 
 .topbar-hamburger {
   background: none;
   border: none;
-  color: white;
-  font-size: 1.3rem;
+  color: var(--white);
+  font-size: 1.25rem;
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 6px;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
-  transition: background 0.2s;
+  transition: background var(--duration-fast);
+  min-width: 40px;
+  min-height: 40px;
+  justify-content: center;
 }
 
-.topbar-hamburger:hover {
-  background: rgba(255,255,255,0.1);
+.topbar-hamburger:hover { background: rgba(255,255,255,0.1); }
+
+.topbar-hamburger:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
 }
 
 .topbar-brand {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: var(--text-lg);
   white-space: nowrap;
+  letter-spacing: 0.5px;
 }
 
-.topbar-brand-accent {
-  color: var(--red);
-}
+.topbar-brand-accent { color: var(--red); }
 
-.topbar-spacer {
-  flex: 1;
-}
+.topbar-spacer { flex: 1; }
 
 .topbar-progress-text {
-  font-size: 0.78rem;
-  opacity: 0.7;
+  font-size: var(--text-xs);
+  opacity: 0.6;
   white-space: nowrap;
+  font-weight: 500;
 }
 
 .topbar-progress-wrap {
-  width: 100px;
+  width: 120px;
   height: 6px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 4px;
+  background: rgba(255,255,255,0.12);
+  border-radius: var(--radius-sm);
   overflow: hidden;
 }
 
 .topbar-progress-fill {
   height: 100%;
   background: var(--red);
-  border-radius: 4px;
-  transition: width 0.6s ease;
+  border-radius: var(--radius-sm);
+  transition: width var(--duration-slow) var(--ease-out);
 }
 
 @media (max-width: 480px) {
-  .topbar {
-    padding: 0 10px;
-    gap: 8px;
-  }
-  .topbar-brand {
-    font-size: 0.85rem;
-  }
-  .topbar-progress-wrap {
-    width: 60px;
-  }
+  .topbar { padding: 0 var(--space-3); gap: var(--space-2); }
+  .topbar-brand { font-size: var(--text-md); }
+  .topbar-progress-wrap { width: 60px; }
 }

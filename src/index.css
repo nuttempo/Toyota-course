@@ -1,43 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap');
 
 :root {
   --red: #EB0A1E;
   --red-hover: #C00918;
-  --black: #1a1a1a;
+  --red-light: #fff5f5;
+  --black: #111;
   --white: #fff;
   --green: #16a34a;
   --green-hover: #15803d;
+  --green-light: #f0fdf4;
   --orange: #f59e0b;
   --blue: #2563eb;
-  --blue-light: #f0f7ff;
+  --blue-light: #eff6ff;
 
-  --surface: #f0f0f0;
+  --surface: #f4f4f6;
   --surface-card: #ffffff;
 
-  --text-primary: #1a1a1a;
-  --text-secondary: #666;
+  --text-primary: #111;
+  --text-secondary: #555;
   --text-tertiary: #888;
   --text-muted: #999;
 
-  --border: #e0e0e0;
+  --border: #e4e4e7;
   --border-hover: #EB0A1E;
   --border-light: #f0f0f0;
 
   --bg-hover: #f5f5f5;
   --bg-active: #fff5f5;
-  --bg-warning: #fef9f0;
-  --bg-info: #f0f7ff;
+  --bg-warning: #fffbeb;
+  --bg-info: #eff6ff;
 
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.04);
-  --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
-  --shadow-xl: 0 8px 40px rgba(0,0,0,0.15);
-  --shadow-glow: 0 4px 20px rgba(235,10,30,0.3);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.06), 0 2px 4px -2px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 24px -4px rgba(0,0,0,0.08), 0 4px 8px -6px rgba(0,0,0,0.04);
+  --shadow-xl: 0 12px 48px -8px rgba(0,0,0,0.12);
+  --shadow-glow: 0 4px 24px rgba(235,10,30,0.3);
 
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
+  --radius-2xl: 20px;
   --radius-full: 30px;
 
   --space-1: 4px;
@@ -46,21 +49,23 @@
   --space-4: 16px;
   --space-5: 20px;
   --space-6: 24px;
+  --space-7: 28px;
   --space-8: 32px;
   --space-10: 40px;
   --space-12: 48px;
+  --space-14: 56px;
   --space-16: 64px;
 
-  --text-xs: 0.72rem;
-  --text-sm: 0.78rem;
-  --text-base: 0.85rem;
-  --text-md: 0.9rem;
-  --text-lg: 0.95rem;
-  --text-xl: 1.05rem;
-  --text-2xl: 1.15rem;
-  --text-3xl: 1.4rem;
-  --text-4xl: 1.7rem;
-  --text-5xl: 2.8rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-md: 1rem;
+  --text-lg: 1.0625rem;
+  --text-xl: 1.125rem;
+  --text-2xl: 1.3rem;
+  --text-3xl: 1.5rem;
+  --text-4xl: 1.9rem;
+  --text-5xl: 3rem;
 
   --z-sidebar: 95;
   --z-topbar: 100;
@@ -78,15 +83,9 @@
   --transition: 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Noto Sans Thai', sans-serif;
@@ -98,11 +97,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+#root { min-height: 100vh; display: flex; flex-direction: column; }
 
 :focus-visible {
   outline: 2px solid var(--blue);
@@ -110,10 +105,7 @@ body {
   border-radius: var(--radius-sm);
 }
 
-::selection {
-  background: var(--red);
-  color: var(--white);
-}
+::selection { background: var(--red); color: var(--white); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -138,9 +130,7 @@ body {
   text-decoration: none;
   transition: top var(--duration-normal);
 }
-.skip-link:focus {
-  top: var(--space-2);
-}
+.skip-link:focus { top: var(--space-2); }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(16px); }
