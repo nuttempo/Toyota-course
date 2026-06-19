@@ -3,6 +3,7 @@ import { pdfUrls } from '../data/pdfMap';
 import { TECH_LABELS } from '../data/tech';
 import { GRADE_DESC } from '../data/gradeDesc';
 import { DESC } from '../data/desc';
+import { carImage } from '../data/carImages';
 import { IconFile, IconChevronDown, IconChevronUp } from './Icons';
 import TechDetail from './TechDetail';
 import GradeDetail from './GradeDetail';
@@ -41,12 +42,24 @@ export default function CarCard({ code, car }) {
   const pdfs = pdfUrls(code);
   const desc = DESC[code] || '';
   const typeIcon = TYPE_ICON[car.type] || '🚗';
+  const imgUrl = carImage(code);
 
   return (
     <article className="car-card">
       <div className="car-card-top">
         <span className="car-card-type-badge">{typeIcon} {car.type}</span>
       </div>
+
+      {imgUrl ? (
+        <div className="car-card-img-wrap">
+          <img className="car-card-img" src={imgUrl} alt={car.title} loading="lazy" />
+        </div>
+      ) : (
+        <div className="car-card-img-placeholder">
+          <span className="car-card-placeholder-icon">{typeIcon}</span>
+          <span className="car-card-placeholder-name">{car.title}</span>
+        </div>
+      )}
 
       <div className="car-card-header">
         <div className="car-card-name">{car.title}</div>
