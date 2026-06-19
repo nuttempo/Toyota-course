@@ -1,3 +1,4 @@
+import { IconArrowRight, IconBook, IconTarget } from './Icons';
 import './Intro.css';
 
 export default function Intro({ onGo }) {
@@ -30,17 +31,17 @@ export default function Intro({ onGo }) {
         </div>
 
         <div className="intro-info-box">
-          <strong>📌 สำหรับมือใหม่</strong><br />
-          🔹 <strong>เบนซิน</strong> = เติมน้ำมันเหมือนรถทั่วไป<br />
-          🔹 <strong>Hybrid (HEV)</strong> = เบนซิน + มอเตอร์ไฟฟ้า <span className="intro-info-green">ประหยัดกว่า ไม่ต้องชาร์จ</span><br />
-          🔹 <strong>EV</strong> = ไฟฟ้า 100% <span className="intro-info-green">เสียบชาร์จ ไม่ต้องเติมน้ำมัน</span><br />
-          🔹 <strong>ดีเซล</strong> = เติมน้ำมันดีเซล <span className="intro-info-brown">แรงบิดสูง เหมาะกับรถบรรทุก กระบะ</span><br />
-          🔹 <strong>SUV</strong> = รถสูงเอนกประสงค์ | <strong>PPV</strong> = รถแกร่งโครงสร้างกระบะ<br />
-          🔹 <strong>GR</strong> = รุ่นสปอร์ตสมรรถนะสูง โดยทีม Gazoo Racing
+          <strong><IconTarget /> สำหรับมือใหม่</strong><br />
+          <strong>เบนซิน</strong> = เติมน้ำมันเหมือนรถทั่วไป<br />
+          <strong>Hybrid (HEV)</strong> = เบนซิน + มอเตอร์ไฟฟ้า <span className="intro-info-green">ประหยัดกว่า ไม่ต้องชาร์จ</span><br />
+          <strong>EV</strong> = ไฟฟ้า 100% <span className="intro-info-green">เสียบชาร์จ ไม่ต้องเติมน้ำมัน</span><br />
+          <strong>ดีเซล</strong> = เติมน้ำมันดีเซล <span className="intro-info-brown">แรงบิดสูง เหมาะกับรถบรรทุก กระบะ</span><br />
+          <strong>SUV</strong> = รถสูงเอนกประสงค์ · <strong>PPV</strong> = รถแกร่งโครงสร้างกระบะ<br />
+          <strong>GR</strong> = รุ่นสปอร์ตสมรรถนะสูง โดยทีม Gazoo Racing
         </div>
 
         <button className="intro-start-btn" onClick={() => onGo(1)}>
-          เริ่มเรียน →
+          เริ่มเรียน <IconArrowRight />
         </button>
       </div>
     </div>

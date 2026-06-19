@@ -3,6 +3,7 @@ import { pdfUrls } from '../data/pdfMap';
 import { TECH_LABELS } from '../data/tech';
 import { GRADE_DESC } from '../data/gradeDesc';
 import { DESC } from '../data/desc';
+import { IconFile, IconChevronDown, IconChevronUp, IconDollar } from './Icons';
 import TechDetail from './TechDetail';
 import GradeDetail from './GradeDetail';
 import './CarCard.css';
@@ -28,13 +29,15 @@ export default function CarCard({ code, car }) {
   const desc = DESC[code] || '';
 
   return (
-    <div className="car-card">
+    <article className="car-card">
       <div className="car-card-header">
         <div>
           <div className="car-card-name">{car.title}</div>
           {car.slogan && <div className="car-card-slogan">"{car.slogan}"</div>}
         </div>
-        <div className="car-card-price">💰 {fmtPrice(car.start_price)} – {fmtPrice(maxP)}</div>
+        <div className="car-card-price">
+          <IconDollar /> {fmtPrice(car.start_price)} – {fmtPrice(maxP)}
+        </div>
       </div>
 
       {desc && <div className="car-card-desc" dangerouslySetInnerHTML={{ __html: desc }} />}
@@ -59,6 +62,7 @@ export default function CarCard({ code, car }) {
                 style={{ background: t.color }}
                 onClick={() => setTechPopup(id)}
                 title="กดดูรายละเอียด"
+                aria-label={`ดูรายละเอียด ${t.name}`}
               >
                 {t.icon} {t.name}
               </button>
@@ -70,25 +74,38 @@ export default function CarCard({ code, car }) {
       <button
         className="car-card-toggle"
         onClick={() => setGradesOpen(o => !o)}
+        aria-expanded={gradesOpen}
+        aria-label={gradesOpen ? 'ซ่อนรุ่นย่อย' : 'ดูทุกรุ่นย่อย'}
       >
-        {gradesOpen ? '▲ ซ่อนรุ่นย่อย' : '▼ ดูทุกรุ่นย่อย + เปรียบเทียบ'}
+        {gradesOpen ? <><IconChevronUp /> ซ่อนรุ่นย่อย</> : <><IconChevronDown /> ดูทุกรุ่นย่อย + เปรียบเทียบ</>}
       </button>
 
       {gradesOpen && (
-        <div className="car-card-grades" style={{ animation: 'fadeIn 0.3s ease' }}>
-          <div className="car-card-grades-hint">💡 คลิกแถวเพื่อดูว่ารุ่นย่อยนี้เพิ่มอะไรจากรุ่นล่าง</div>
+        <div className="car-card-grades" style={{ animation: 'fadeIn 250ms cubic-bezier(0.16, 1, 0.3, 1)' }}>
+          <div className="car-card-grades-hint">คลิกแถวเพื่อดูว่ารุ่นย่อยนี้เพิ่มอะไรจากรุ่นล่าง</div>
           <table className="car-card-grades-table">
             <tbody>
               {car.grades.map((g, i) => (
                 <tr
                   key={i}
                   className="car-card-grade-row"
+                  tabIndex={0}
+                  role="button"
                   onClick={() => {
                     const gd = (GRADE_DESC[code] || []).find(
                       d => g.title.includes(d.grade) || d.grade.includes(g.title)
                     );
                     if (gd) setGradePopup({ code, grade: gd });
                   }}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      const gd = (GRADE_DESC[code] || []).find(
+                        d => g.title.includes(d.grade) || d.grade.includes(g.title)
+                      );
+                      if (gd) setGradePopup({ code, grade: gd });
+                    }
+                  }}
+                  aria-label={`ดูรายละเอียดรุ่น ${g.title}`}
                 >
                   <td className="car-card-grade-name">{g.title}</td>
                   <td className="car-card-grade-trans">{g.trans}</td>
@@ -106,7 +123,7 @@ export default function CarCard({ code, car }) {
         <div className="car-card-pdfs">
           {pdfs.map(p => (
             <a key={p} className="car-card-pdf-link" href={p} target="_blank" rel="noopener noreferrer">
-              📄 {p.split('/').pop()}
+              <IconFile /> {p.split('/').pop()}
             </a>
           ))}
         </div>
@@ -120,6 +137,6 @@ export default function CarCard({ code, car }) {
           onClose={() => setGradePopup(null)}
         />
       )}
-    </div>
+    </article>
   );
 }

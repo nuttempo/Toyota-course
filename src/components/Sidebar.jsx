@@ -1,5 +1,6 @@
 import { MODULES } from '../data/modules';
 import { QUIZ } from '../data/quiz';
+import { IconHome, IconBook, IconWrench, IconCheck } from './Icons';
 import './Sidebar.css';
 
 export default function Sidebar({ open, currentId, onSelect, ans }) {
@@ -14,16 +15,16 @@ export default function Sidebar({ open, currentId, onSelect, ans }) {
   return (
     <>
       {open && <div className="sidebar-overlay" onClick={() => onSelect(currentId)} />}
-      <aside className={`sidebar ${open ? 'sidebar-open' : ''}`}>
+      <aside className={`sidebar ${open ? 'sidebar-open' : ''}`} aria-label="เมนูคอร์ส">
         <div className="sidebar-header">
-          <div className="sidebar-title">📚 คอร์สทั้งหมด</div>
+          <div className="sidebar-title"><IconBook /> คอร์สทั้งหมด</div>
         </div>
         <nav className="sidebar-nav">
           <button
             className={`sidebar-item ${currentId === 0 ? 'sidebar-item-active' : ''}`}
             onClick={() => onSelect(0)}
           >
-            <span className="sidebar-item-icon">🏠</span>
+            <span className="sidebar-item-icon"><IconHome /></span>
             <span className="sidebar-item-label">หน้าแรก</span>
           </button>
           {lessons.map((m, i) => {
@@ -39,7 +40,7 @@ export default function Sidebar({ open, currentId, onSelect, ans }) {
                   <span>{m.title}</span>
                   {m.subtitle && <span className="sidebar-item-sub">{m.subtitle}</span>}
                 </span>
-                {done && <span className="sidebar-item-check">✓</span>}
+                {done && <span className="sidebar-item-check" aria-label="เรียนเสร็จแล้ว"><IconCheck /></span>}
               </button>
             );
           })}
@@ -47,7 +48,7 @@ export default function Sidebar({ open, currentId, onSelect, ans }) {
             className={`sidebar-item ${currentId === 6 ? 'sidebar-item-active' : ''}`}
             onClick={() => onSelect(6)}
           >
-            <span className="sidebar-item-icon">🔧</span>
+            <span className="sidebar-item-icon"><IconWrench /></span>
             <span className="sidebar-item-label">เทคโนโลยี + สรุป</span>
           </button>
         </nav>

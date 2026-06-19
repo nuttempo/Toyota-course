@@ -1,29 +1,26 @@
+import { IconMenu, IconX, IconChevronDown, IconChevronUp, IconFile, IconDollar } from './Icons';
 import './TopBar.css';
 
-export default function TopBar({ cur, mod, progressPercent, currentModIndex, totalModules, onToggleSidebar, sidebarOpen }) {
+export default function TopBar({ cur, progressPercent, currentModIndex, totalModules, onToggleSidebar, sidebarOpen }) {
   return (
-    <div className="topbar">
-      <button className="topbar-hamburger" onClick={onToggleSidebar} aria-label="Toggle menu">
-        {sidebarOpen ? '✕' : '☰'}
+    <header className="topbar" role="banner">
+      <button className="topbar-hamburger" onClick={onToggleSidebar} aria-label={sidebarOpen ? 'ปิดเมนู' : 'เปิดเมนู'} aria-expanded={sidebarOpen}>
+        {sidebarOpen ? <IconX /> : <IconMenu />}
       </button>
       <div className="topbar-brand"><span className="topbar-brand-accent">TOYOTA</span> รู้จักผลิตภัณฑ์</div>
       <div className="topbar-spacer" />
       {cur > 0 && cur < 99 && (
         <>
-          <div className="topbar-progress-text">
+          <span className="topbar-progress-text">
             Module {currentModIndex}/{totalModules}
-          </div>
-          <div className="topbar-progress-wrap">
+          </span>
+          <div className="topbar-progress-wrap" role="progressbar" aria-valuenow={progressPercent} aria-valuemin={0} aria-valuemax={100}>
             <div className="topbar-progress-fill" style={{ width: `${progressPercent}%` }} />
           </div>
         </>
       )}
-      {cur === 0 && (
-        <div className="topbar-progress-text">คอร์ส</div>
-      )}
-      {cur === 99 && (
-        <div className="topbar-progress-text">สำเร็จ! 🎉</div>
-      )}
-    </div>
+      {cur === 0 && <span className="topbar-progress-text">คอร์ส</span>}
+      {cur === 99 && <span className="topbar-progress-text">สำเร็จ!</span>}
+    </header>
   );
 }

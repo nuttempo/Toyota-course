@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { IconCheck, IconX } from './Icons';
 import './Quiz.css';
 
 export default function Quiz({ modId, quiz, ans, res, onPick }) {
@@ -9,7 +10,7 @@ export default function Quiz({ modId, quiz, ans, res, onPick }) {
 
   return (
     <div className="quiz-section">
-      <h3 className="quiz-title">✏️ Quiz</h3>
+      <h3 className="quiz-title">Quiz</h3>
       <div className="quiz-list">
         {quiz.map((q, qi) => {
           const k = `${modId}-${qi}`;
@@ -18,7 +19,7 @@ export default function Quiz({ modId, quiz, ans, res, onPick }) {
           return (
             <div key={k} className="quiz-card">
               <div className="quiz-question">{qi + 1}. {q.q}</div>
-              <div className="quiz-options">
+              <div className="quiz-options" role="radiogroup" aria-label={`ข้อ ${qi + 1}`}>
                 {q.opts.map((o, oi) => {
                   let cls = 'quiz-option';
                   if (sel === oi && !r) cls += ' quiz-option-selected';
@@ -28,8 +29,15 @@ export default function Quiz({ modId, quiz, ans, res, onPick }) {
                     <div
                       key={oi}
                       className={cls}
-                      onClick={() => {
-                        if (!r) onPick(modId, qi, oi, quiz);
+                      role="radio"
+                      aria-checked={sel === oi}
+                      tabIndex={0}
+                      onClick={() => { if (!r) onPick(modId, qi, oi, quiz); }}
+                      onKeyDown={e => {
+                        if ((e.key === 'Enter' || e.key === ' ') && !r) {
+                          e.preventDefault();
+                          onPick(modId, qi, oi, quiz);
+                        }
                       }}
                     >
                       <div className="quiz-circle">
@@ -42,7 +50,7 @@ export default function Quiz({ modId, quiz, ans, res, onPick }) {
               </div>
               {r && (
                 <div className={`quiz-result quiz-result-${r}`}>
-                  {r === 'correct' ? '✅ ถูกต้อง!' : `❌ ผิด! คำตอบ: ${q.opts[q.a]}`}
+                  {r === 'correct' ? <><IconCheck /> ถูกต้อง!</> : <><IconX /> ผิด! คำตอบ: {q.opts[q.a]}</>}
                 </div>
               )}
             </div>
@@ -50,7 +58,7 @@ export default function Quiz({ modId, quiz, ans, res, onPick }) {
         })}
       </div>
       {allAnswered && (
-        <div className="quiz-all-done">✓ ตอบครบทุกข้อแล้ว!</div>
+        <div className="quiz-all-done"><IconCheck /> ตอบครบทุกข้อแล้ว!</div>
       )}
     </div>
   );

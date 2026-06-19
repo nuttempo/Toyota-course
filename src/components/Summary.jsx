@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { TECH_LABELS, TECH_ORDER, TECH_DESC } from '../data/tech';
+import { TECH_LABELS, TECH_ORDER } from '../data/tech';
 import { CARS } from '../data/cars';
 import { QUIZ } from '../data/quiz';
+import { IconWrench, IconTarget, IconBarChart, IconArrowLeft, IconCheck, IconBook, IconStar, IconDollar, IconCar, IconRefresh } from './Icons';
 import Quiz from './Quiz';
 import TechDetail from './TechDetail';
 import './Summary.css';
@@ -22,10 +23,10 @@ export default function Summary({ mod, cur, ans, res, onPick, onGo, onReset, tot
   const allAnswered = quiz.every((_, i) => ans['6-' + i] !== undefined);
 
   return (
-    <div className="summary" style={{ animation: 'fadeIn 0.4s ease' }}>
+    <div className="summary" style={{ animation: 'fadeIn 400ms cubic-bezier(0.16, 1, 0.3, 1)' }}>
       {/* Tech Overview */}
       <div className="summary-card">
-        <h2 className="summary-title">🔧 เทคโนโลยีหลักของ Toyota</h2>
+        <h2 className="summary-title"><IconWrench /> เทคโนโลยีหลักของ Toyota</h2>
         <div className="summary-tech-grid">
           {TECH_ORDER.map(id => {
             const t = TECH_LABELS[id];
@@ -36,8 +37,9 @@ export default function Summary({ mod, cur, ans, res, onPick, onGo, onReset, tot
                 className="summary-tech-item"
                 style={{ background: t.color }}
                 onClick={() => setTechPopup(id)}
+                aria-label={`ดูรายละเอียด ${t.name}`}
               >
-                <div className="summary-tech-icon">{t.icon}</div>
+                <div className="summary-tech-icon" aria-hidden="true">{t.icon}</div>
                 <div className="summary-tech-name">{t.name}</div>
                 <div className="summary-tech-desc">กดเพื่อดูรายละเอียด</div>
               </button>
@@ -48,20 +50,20 @@ export default function Summary({ mod, cur, ans, res, onPick, onGo, onReset, tot
 
       {/* Budget */}
       <div className="summary-card">
-        <h2 className="summary-title">🎯 แนะนำตามงบ</h2>
+        <h2 className="summary-title"><IconTarget /> แนะนำตามงบ</h2>
         <div className="summary-budget-grid">
-          <div className="summary-budget-item"><div className="summary-budget-amt">&lt; 600K</div><div className="summary-budget-list"><span>Hilux Champ</span><span>Yaris ATIV</span><span>Yaris</span></div></div>
-          <div className="summary-budget-item"><div className="summary-budget-amt">600K–900K</div><div className="summary-budget-list"><span>Yaris Cross</span><span>Veloz</span><span>Hilux Revo</span></div></div>
-          <div className="summary-budget-item"><div className="summary-budget-amt">900K–1.2M</div><div className="summary-budget-list"><span>Altis</span><span>Corolla Cross</span><span>Fortuner</span></div></div>
-          <div className="summary-budget-item"><div className="summary-budget-amt">1.2M–1.5M</div><div className="summary-budget-list"><span>Camry HEV</span><span>Innova Zenix</span><span>bZ4X</span></div></div>
-          <div className="summary-budget-item"><div className="summary-budget-amt">1.5M–2M</div><div className="summary-budget-list"><span>Fortuner Legender</span><span>Majesty</span><span>Fortuner GR</span></div></div>
-          <div className="summary-budget-item"><div className="summary-budget-amt">&gt; 2M</div><div className="summary-budget-list"><span>Alphard</span><span>GR 86</span><span>GR Supra</span></div></div>
+          <div className="summary-budget-item"><div className="summary-budget-amt">&lt; 600K</div><div className="summary-budget-list"><span className="budget-car">Hilux Champ</span><span className="budget-car">Yaris ATIV</span><span className="budget-car">Yaris</span></div></div>
+          <div className="summary-budget-item"><div className="summary-budget-amt">600K–900K</div><div className="summary-budget-list"><span className="budget-car">Yaris Cross</span><span className="budget-car">Veloz</span><span className="budget-car">Hilux Revo</span></div></div>
+          <div className="summary-budget-item"><div className="summary-budget-amt">900K–1.2M</div><div className="summary-budget-list"><span className="budget-car">Altis</span><span className="budget-car">Corolla Cross</span><span className="budget-car">Fortuner</span></div></div>
+          <div className="summary-budget-item"><div className="summary-budget-amt">1.2M–1.5M</div><div className="summary-budget-list"><span className="budget-car">Camry HEV</span><span className="budget-car">Innova Zenix</span><span className="budget-car">bZ4X</span></div></div>
+          <div className="summary-budget-item"><div className="summary-budget-amt">1.5M–2M</div><div className="summary-budget-list"><span className="budget-car">Fortuner Legender</span><span className="budget-car">Majesty</span><span className="budget-car">Fortuner GR</span></div></div>
+          <div className="summary-budget-item"><div className="summary-budget-amt">&gt; 2M</div><div className="summary-budget-list"><span className="budget-car">Alphard</span><span className="budget-car">GR 86</span><span className="budget-car">GR Supra</span></div></div>
         </div>
       </div>
 
       {/* Summary Table */}
       <div className="summary-card">
-        <h2 className="summary-title">📊 สรุปทุกรุ่น</h2>
+        <h2 className="summary-title"><IconBarChart /> สรุปทุกรุ่น</h2>
         <div className="summary-table-wrap">
           <table className="summary-table">
             <thead><tr><th>Segment</th><th>รุ่น</th><th>ราคาเริ่ม</th><th>เชื้อเพลิง</th></tr></thead>
@@ -92,7 +94,7 @@ export default function Summary({ mod, cur, ans, res, onPick, onGo, onReset, tot
 
       {/* Navigation */}
       <div className="summary-nav">
-        <button className="btn btn-outline" onClick={() => onGo(5)}>← ก่อนหน้า</button>
+        <button className="btn btn-outline" onClick={() => onGo(5)}><IconArrowLeft /> ก่อนหน้า</button>
         <button
           className={`btn ${allAnswered ? 'btn-success' : 'btn-primary'}`}
           onClick={() => {
@@ -100,7 +102,7 @@ export default function Summary({ mod, cur, ans, res, onPick, onGo, onReset, tot
             onGo(99);
           }}
         >
-          {allAnswered ? '🎉 ดูผลลัพธ์' : 'ตอบ Quiz ก่อน'}
+          {allAnswered ? <><IconCheck /> ดูผลลัพธ์</> : 'ตอบ Quiz ก่อน'}
         </button>
       </div>
 

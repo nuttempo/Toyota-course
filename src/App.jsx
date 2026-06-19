@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { useProgress } from './hooks/useProgress';
 import { MODULES } from './data/modules';
 import TopBar from './components/TopBar';
@@ -12,6 +12,7 @@ import './App.css';
 export default function App() {
   const { cur, ans, res, tq, cq, go, pickAnswer, reset } = useProgress();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const mainRef = useRef(null);
 
   const mod = useMemo(() => MODULES.find(m => m.id === cur) || MODULES[0], [cur]);
 
@@ -30,6 +31,14 @@ export default function App() {
     return Math.round((idx / lessons.length) * 100);
   }, [cur]);
 
+  useEffect(() => {
+    if (mainRef.current) {
+      const firstHeading = mainRef.current.querySelector('h1, h2, [tabindex="-1"]');
+      if (firstHeading) firstHeading.setAttribute('tabindex', '-1');
+      mainRef.current.focus();
+    }
+  }, [cur]);
+
   const renderContent = () => {
     const Component = cur === 0 ? Intro :
                      cur === 99 ? Complete :
@@ -38,7 +47,7 @@ export default function App() {
     const key = `slide-${cur}`;
 
     return (
-      <div key={key} style={{ animation: 'fadeIn 0.4s ease' }}>
+      <div key={key} style={{ animation: 'fadeIn 400ms cubic-bezier(0.16, 1, 0.3, 1)' }}>
         <Component
           mod={mod}
           cur={cur}
@@ -56,9 +65,11 @@ export default function App() {
 
   return (
     <div className="app-layout">
+      <a className="skip-link" href="#main-content" onClick={e => { e.preventDefault(); mainRef.current?.focus(); }}>
+        ข้ามไปยังเนื้อหา
+      </a>
       <TopBar
         cur={cur}
-        mod={mod}
         progressPercent={progressPercent}
         currentModIndex={currentModIndex}
         totalModules={totalModules}
@@ -72,7 +83,7 @@ export default function App() {
           onSelect={(id) => { go(id); setSidebarOpen(false); }}
           ans={ans}
         />
-        <main className="app-content">
+        <main className="app-content" id="main-content" ref={mainRef} tabIndex={-1}>
           {renderContent()}
         </main>
       </div>
