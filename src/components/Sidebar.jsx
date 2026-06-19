@@ -3,14 +3,20 @@ import { QUIZ } from '../data/quiz';
 import { IconHome, IconBook, IconWrench, IconCheck } from './Icons';
 import './Sidebar.css';
 
+function isQuizStep(id) {
+  return id > 100 && id < 200;
+}
+
 export default function Sidebar({ open, currentId, onSelect, ans }) {
-  const lessons = MODULES.filter(m => !m.isIntro && !m.isComplete);
+  const lessons = MODULES.filter(m => !m.isIntro && !m.isComplete && !m.isQuiz);
 
   const isComplete = (modId) => {
     const quiz = QUIZ[modId];
     if (!quiz) return false;
     return quiz.every((_, i) => ans[`${modId}-${i}`] !== undefined);
   };
+
+  const isActive = (m) => currentId === m.id || currentId === m.id + 100;
 
   return (
     <>
@@ -32,8 +38,8 @@ export default function Sidebar({ open, currentId, onSelect, ans }) {
             return (
               <button
                 key={m.id}
-                className={`sidebar-item ${currentId === m.id ? 'sidebar-item-active' : ''}`}
-                onClick={() => onSelect(m.id)}
+                className={`sidebar-item ${isActive(m) ? 'sidebar-item-active' : ''}`}
+                onClick={() => onSelect(isQuizStep(currentId) && isActive(m) ? currentId : m.id)}
               >
                 <span className="sidebar-item-num">{i + 1}</span>
                 <span className="sidebar-item-label">
