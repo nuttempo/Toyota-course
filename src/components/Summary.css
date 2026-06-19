@@ -9,7 +9,7 @@
   background: var(--surface-card);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-md);
-  padding: var(--space-7) var(--space-8);
+  padding: var(--space-8) var(--space-8);
   transition: box-shadow var(--duration-normal);
   position: relative;
   overflow: hidden;

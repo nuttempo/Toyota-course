@@ -2,8 +2,8 @@
   background: var(--surface-card);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-md);
-  padding: var(--space-7) var(--space-8);
-  margin-bottom: var(--space-5);
+  padding: var(--space-8) var(--space-8);
+  margin-bottom: var(--space-6);
   position: relative;
   overflow: hidden;
 }
@@ -44,7 +44,7 @@
   font-weight: 500;
 }
 
-.lesson-cars { margin-top: var(--space-4); }
+.lesson-cars { margin-top: var(--space-5); }
 
 .lesson-tip {
   background: var(--bg-info);
@@ -60,7 +60,7 @@
   display: flex;
   justify-content: space-between;
   gap: var(--space-3);
-  margin-top: var(--space-6);
+  margin-top: var(--space-8);
   flex-wrap: wrap;
 }
 

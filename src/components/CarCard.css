@@ -2,8 +2,8 @@
   background: var(--surface-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  padding: var(--space-6) var(--space-6);
-  margin: var(--space-3) 0;
+  padding: var(--space-7) var(--space-7);
+  margin: var(--space-4) 0;
   transition: box-shadow var(--duration-normal), border-color var(--duration-normal);
   position: relative;
 }
@@ -69,7 +69,7 @@
   font-size: var(--text-base);
   color: var(--text-secondary);
   margin: var(--space-3) 0;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 .car-card-desc strong { color: var(--text-primary); }
