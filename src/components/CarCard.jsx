@@ -42,7 +42,7 @@ export default function CarCard({ code, car }) {
   const pdfs = pdfUrls(code);
   const desc = DESC[code] || '';
   const typeIcon = TYPE_ICON[car.type] || '🚗';
-  const imgUrl = carImage(code);
+  const img = carImage(code);
 
   return (
     <article className="car-card">
@@ -50,9 +50,9 @@ export default function CarCard({ code, car }) {
         <span className="car-card-type-badge">{typeIcon} {car.type}</span>
       </div>
 
-      {imgUrl ? (
+      {img ? (
         <div className="car-card-img-wrap">
-          <img className="car-card-img" src={imgUrl} alt={car.title} loading="lazy" />
+          <img className="car-card-img" src={img.src} srcSet={img.srcSet} sizes={img.sizes} alt={car.title} loading="lazy" />
         </div>
       ) : (
         <div className="car-card-img-placeholder">

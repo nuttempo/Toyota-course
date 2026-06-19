@@ -34,5 +34,12 @@ const IMAGES = {
 };
 
 export function carImage(code) {
-  return IMAGES[code] || null;
+  const src = IMAGES[code];
+  if (!src) return null;
+  const base = src.replace('.jpg', '');
+  return {
+    src,
+    srcSet: `${base}-480.jpg 480w, ${src} 960w`,
+    sizes: '(max-width: 600px) 480px, 960px',
+  };
 }
