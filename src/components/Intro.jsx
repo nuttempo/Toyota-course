@@ -1,5 +1,12 @@
 import { IconArrowRight, IconBook, IconTarget } from './Icons';
+import { CARS } from '../data/cars';
+import { QUIZ } from '../data/quiz';
 import './Intro.css';
+
+const MODULE_COUNT = 6;
+const CAR_COUNT = Object.keys(CARS).length;
+const QUIZ_COUNT = Object.values(QUIZ).reduce((sum, qs) => sum + qs.length, 0);
+const PDF_COUNT = 32;
 
 export default function Intro({ onGo }) {
   return (
@@ -9,23 +16,23 @@ export default function Intro({ onGo }) {
           <span className="intro-logo-accent">TOYOTA</span>
         </div>
         <h1 className="intro-title">รู้จักผลิตภัณฑ์ทั้งหมด</h1>
-        <p className="intro-subtitle">6 Module · 24 รุ่น · ข้อมูลจริงจาก Toyota Thailand</p>
+        <p className="intro-subtitle">{MODULE_COUNT} Module · {CAR_COUNT} รุ่น · ข้อมูลจริงจาก Toyota Thailand</p>
 
         <div className="intro-stats">
           <div className="intro-stat">
-            <div className="intro-stat-num">6</div>
+            <div className="intro-stat-num">{MODULE_COUNT}</div>
             <div className="intro-stat-label">Module</div>
           </div>
           <div className="intro-stat">
-            <div className="intro-stat-num">24</div>
+            <div className="intro-stat-num">{CAR_COUNT}</div>
             <div className="intro-stat-label">รุ่น</div>
           </div>
           <div className="intro-stat">
-            <div className="intro-stat-num">18</div>
+            <div className="intro-stat-num">{QUIZ_COUNT}</div>
             <div className="intro-stat-label">Quiz</div>
           </div>
           <div className="intro-stat">
-            <div className="intro-stat-num">32</div>
+            <div className="intro-stat-num">{PDF_COUNT}</div>
             <div className="intro-stat-label">PDF</div>
           </div>
         </div>
