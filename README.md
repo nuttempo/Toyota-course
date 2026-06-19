@@ -14,5 +14,4 @@ npm run deploy    # deploy GitHub Pages
 
 ## หมายเหตุ
 
-- ไฟล์ PDF ควรวางใน `public/catalogues/` ก่อน build
-- หรือ symlink: `ln -s /path/to/pdfs public/catalogues`
+ไฟล์ PDF ทั้งหมดดึงจากเซิร์ฟเวอร์ Toyota Thailand โดยตรง (`www.toyota.co.th/media/product/series/download/`) — ไม่ต้องมีไฟล์ PDF ใน Repo

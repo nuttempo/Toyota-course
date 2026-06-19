@@ -1,4 +1,6 @@
-export const PDF_MAP = {
+const BASE = 'https://www.toyota.co.th/media/product/series/download';
+
+const FILENAMES = {
   "yarisativ":["YarisATIV2026_Catalog.pdf"],
   "yaris":["Yaris2026_Catalog.pdf"],
   "altis":["Catalog_CorollaAltis_2026.pdf"],
@@ -28,3 +30,13 @@ export const PDF_MAP = {
   "grcorolla":["GRCorolla_Catalog_2024.pdf"],
   "grsupra":["GR_Supra_2025.pdf"],
 };
+
+export function pdfUrls(code) {
+  const files = FILENAMES[code];
+  if (!files) return [];
+  return files.map(f => `${BASE}/${encodeURIComponent(f)}`);
+}
+
+export function pdfFilenames(code) {
+  return FILENAMES[code] || [];
+}

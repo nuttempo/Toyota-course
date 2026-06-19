@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PDF_MAP } from '../data/pdfMap';
+import { pdfUrls } from '../data/pdfMap';
 import { TECH_LABELS } from '../data/tech';
 import { GRADE_DESC } from '../data/gradeDesc';
 import { DESC } from '../data/desc';
@@ -24,7 +24,7 @@ export default function CarCard({ code, car }) {
   const [gradePopup, setGradePopup] = useState(null);
 
   const maxP = Math.max(...car.grades.map(g => g.price));
-  const pdfs = PDF_MAP[code] || [];
+  const pdfs = pdfUrls(code);
   const desc = DESC[code] || '';
 
   return (
@@ -105,8 +105,8 @@ export default function CarCard({ code, car }) {
       {pdfs.length > 0 && (
         <div className="car-card-pdfs">
           {pdfs.map(p => (
-            <a key={p} className="car-card-pdf-link" href={`./catalogues/${encodeURI(p)}`} target="_blank" rel="noopener noreferrer">
-              📄 {p}
+            <a key={p} className="car-card-pdf-link" href={p} target="_blank" rel="noopener noreferrer">
+              📄 {p.split('/').pop()}
             </a>
           ))}
         </div>
