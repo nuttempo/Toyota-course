@@ -13,7 +13,7 @@ export default function Intro({ onGo }) {
     <div className="intro-card">
       <div className="intro-hero">
         <div className="intro-logo">
-          <span className="intro-logo-accent">TOYOTA</span>
+          <span className="intro-logo-accent">TOYOTA</span> <span className="ninda intro-ninda">Ninda</span>
         </div>
         <h1 className="intro-title">รู้จักผลิตภัณฑ์ทั้งหมด</h1>
         <p className="intro-subtitle">{MODULE_COUNT} Module · {CAR_COUNT} รุ่น · ข้อมูลจริงจาก Toyota Thailand</p>

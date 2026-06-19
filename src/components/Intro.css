@@ -46,6 +46,13 @@
 
 .intro-logo-accent { color: var(--red); }
 
+.intro-ninda {
+  font-size: 3.2rem;
+  color: var(--white);
+  margin-left: 0.15em;
+  line-height: 1;
+}
+
 .intro-title {
   font-size: var(--text-4xl);
   font-weight: 700;

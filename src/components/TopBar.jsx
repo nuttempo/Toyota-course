@@ -7,7 +7,7 @@ export default function TopBar({ cur, progressPercent, currentModIndex, totalMod
       <button className="topbar-hamburger" onClick={onToggleSidebar} aria-label={sidebarOpen ? 'ปิดเมนู' : 'เปิดเมนู'} aria-expanded={sidebarOpen}>
         {sidebarOpen ? <IconX /> : <IconMenu />}
       </button>
-      <div className="topbar-brand"><span className="topbar-brand-accent">TOYOTA</span> รู้จักผลิตภัณฑ์</div>
+      <div className="topbar-brand"><span className="topbar-brand-accent">TOYOTA</span> <span className="ninda">Ninda</span> รู้จักผลิตภัณฑ์</div>
       <div className="topbar-spacer" />
       {cur > 0 && cur < 99 && (
         <>
