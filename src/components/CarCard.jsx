@@ -33,6 +33,12 @@ function fmtPriceShort(n) {
   return (n / 1000).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + 'K';
 }
 
+function findGradeDesc(code, title) {
+  const list = GRADE_DESC[code] || [];
+  return list.find(d => d.grade === title) ||
+    list.find(d => title.includes(d.grade) || d.grade.includes(title));
+}
+
 export default function CarCard({ code, car }) {
   const [gradesOpen, setGradesOpen] = useState(false);
   const [techPopup, setTechPopup] = useState(null);
@@ -69,7 +75,9 @@ export default function CarCard({ code, car }) {
       <div className="car-card-price-row">
         <div className="car-card-price-label">💰 ราคา</div>
         <div className="car-card-price-value">
-          {fmtPriceFull(car.start_price)} – {fmtPriceFull(maxP)} บาท
+          {car.start_price === maxP
+            ? `${fmtPriceFull(car.start_price)} บาท`
+            : `${fmtPriceFull(car.start_price)} – ${fmtPriceFull(maxP)} บาท`}
         </div>
       </div>
 
@@ -140,16 +148,12 @@ export default function CarCard({ code, car }) {
                       tabIndex={0}
                       role="button"
                       onClick={() => {
-                        const gd = (GRADE_DESC[code] || []).find(
-                          d => g.title.includes(d.grade) || d.grade.includes(g.title)
-                        );
+                        const gd = findGradeDesc(code, g.title);
                         if (gd) setGradePopup({ code, grade: gd });
                       }}
                       onKeyDown={e => {
                         if (e.key === 'Enter' || e.key === ' ') {
-                          const gd = (GRADE_DESC[code] || []).find(
-                            d => g.title.includes(d.grade) || d.grade.includes(g.title)
-                          );
+                          const gd = findGradeDesc(code, g.title);
                           if (gd) setGradePopup({ code, grade: gd });
                         }
                       }}

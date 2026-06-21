@@ -63,16 +63,40 @@ export const GRADE_DESC = {
   ],
   hilux_revo_standard: [
     { grade: '2.4 Entry (ไม่มีกระบะ)', diff: 'รุ่นเริ่มต้น 🏁 — ดีเซล 2.4L MT 6 จังหวะ, แบบ C&C (Cab & Chassis), 2 ที่นั่ง, ราคา 584,000' },
-    { grade: '2.4 Entry', diff: '✨ เพิ่ม: พร้อมกระบะท้าย, ช่วงล้อสั้น (SWB)' },
-    { grade: '2.4 Entry AT', diff: '✨ เกียร์อัตโนมัติ 6 จังหวะ + กระบะท้าย' },
-    { grade: '2.8 Entry', diff: '💎 เปลี่ยนเครื่องเป็น 2.8L แรงกว่า 204 HP (จาก 150 HP) — เหมาะกับงานหนัก' },
+    { grade: '2.4 Entry ช่วงล้อสั้น', diff: '✨ พร้อมกระบะท้าย ช่วงล้อสั้น (SWB), เกียร์ธรรมดา' },
+    { grade: '2.4 Entry', diff: '✨ พร้อมกระบะท้าย ช่วงล้อยาว (LWB), เกียร์ธรรมดา' },
+    { grade: '2.4 Entry AT (ไม่มีกระบะ)', diff: '✨ เกียร์อัตโนมัติ 6 จังหวะ + แบบ C&C ไม่มีกระบะท้าย' },
+    { grade: '2.4 Entry AT', diff: '💎 เกียร์อัตโนมัติ 6 จังหวะ + กระบะท้าย' },
+    { grade: '2.8 Entry', diff: '🔥 สูงสุด: เปลี่ยนเครื่องเป็น 2.8L แรงกว่า 204 HP (จาก 150 HP) — เหมาะกับงานหนัก' },
   ],
   hilux_revo_zedition: [
-    { grade: 'Smart Cab Z Entry', diff: 'รุ่นเริ่มต้น 🏁 — Smart Cab (แค็บครึ่ง) 2.4L MT, 4x2, ดีไซน์ Z Edition โป่งล้อ Wide Body' },
-    { grade: 'Smart Cab Z Mid', diff: '✨ เพิ่ม: เกียร์ AT, ระบบ VSC+TRC+HAC, ระบบช่วยออกตัว' },
-    { grade: 'DCab Z Entry AT', diff: '✨ Double Cab (5 ที่นั่ง) เกียร์ AT, 2.4L, 4x2' },
-    { grade: 'DCab Z Mid', diff: '💎 เพิ่ม: ระบบความปลอดภัยครบ, ไฟตัดหมอก, กระจกไฟฟ้า' },
-    { grade: 'DCab Z 4x2 2.8 GR Sport AT', diff: '🏎️ สูงสุด: เครื่อง 2.8L 204 HP + เกียร์ AT Paddle Shift + แต่ง GR Sport (กันชนพิเศษ, ดิฟฟิวเซอร์, ล้อดำ)' },
+    { grade: 'Smart Cab Z Edition 4x2 2.4 Entry', diff: 'รุ่นเริ่มต้น 🏁 — Smart Cab (แค็บครึ่ง) 2.4L MT, 4x2, ดีไซน์ Z Edition โป่งล้อ Wide Body' },
+    { grade: 'Smart Cab Z Edition 4x2 2.4 Entry AT', diff: '✨ เกียร์อัตโนมัติ 6 จังหวะ' },
+    { grade: 'Smart Cab Z Edition 4x2 2.4 Mid', diff: '✨ เพิ่ม: ระบบ VSC+TRC+HAC, ระบบช่วยออกตัว, เกียร์ธรรมดา' },
+    { grade: 'Smart Cab Z Edition 4x2 2.4 Mid AT', diff: '💎 Smart Cab รุ่น Mid + เกียร์อัตโนมัติ' },
+    { grade: 'Double Cab Z Edition 4x2 2.4 Entry', diff: '✨ Double Cab (5 ที่นั่ง) 2.4L, 4x2, เกียร์ธรรมดา' },
+    { grade: 'Double Cab Z Edition 4x2 2.4 Entry AT', diff: '✨ Double Cab + เกียร์อัตโนมัติ' },
+    { grade: 'Double Cab Z Edition 4x2 2.4 Mid', diff: '💎 เพิ่ม: ระบบความปลอดภัยครบ, ไฟตัดหมอก, กระจกไฟฟ้า' },
+    { grade: 'Double Cab Z Edition 4x2 2.4 Mid AT', diff: '💎 Double Cab รุ่น Mid + เกียร์อัตโนมัติ' },
+    { grade: 'Double Cab 4x2 2.8 GR Sport AT', diff: '🏎️ สูงสุด: เครื่อง 2.8L 204 HP + เกียร์ AT Paddle Shift + แต่ง GR Sport (กันชนพิเศษ, ดิฟฟิวเซอร์, ล้อดำ)' },
+  ],
+  hiace: [
+    { grade: 'Eco MT', diff: 'รุ่นเริ่มต้น 🏁 — ดีเซล 2.8L เกียร์ธรรมดา 6 จังหวะ, ตัวถัง Panel Van สำหรับงานขนส่ง 3 ที่นั่ง' },
+    { grade: 'GL MT', diff: '✨ เพิ่ม: ตัวถัง GL กระจกเต็มคัน 12 ที่นั่ง, เบาะโดยสารครบ, เกียร์ธรรมดา' },
+    { grade: 'GL AT', diff: '💎 เกียร์อัตโนมัติ 6 จังหวะ + ตัวถัง GL 12 ที่นั่ง — ขับสบายกว่า เหมาะกับรับส่งผู้โดยสาร' },
+  ],
+  gr86: [
+    { grade: 'GR 86', diff: '🏎️ สปอร์ตคูเป้ขับเคลื่อนล้อหลัง 4 สูบ Boxer 2.4L 234 แรงม้า, เกียร์อัตโนมัติ 6 จังหวะ Paddle Shift, ช่วงล่างปรับแต่งสปอร์ต, เบรก Brembo, 4 ที่นั่ง' },
+  ],
+  gryaris: [
+    { grade: 'GR Yaris', diff: '🏎️ เครื่อง 3 สูบ 1.6L Turbo 280 แรงม้า, ขับเคลื่อน 4 ล้อ GR-FOUR, เกียร์ธรรมดา 6 จังหวะ, ตัวถังเสริมความแข็งแรงพิเศษ, ระบบ TSS + Toyota Connect' },
+  ],
+  grcorolla: [
+    { grade: 'GR Corolla', diff: '🏎️ เครื่อง 3 สูบ 1.6L Turbo 300 แรงม้า, ขับเคลื่อน 4 ล้อ GR-FOUR, เกียร์อัตโนมัติ 8 จังหวะ Direct Shift, ช่วงล่างสปอร์ต 5 ที่นั่ง, ระบบ TSS + Toyota Connect' },
+  ],
+  grsupra: [
+    { grade: 'GR Supra', diff: '🏎️ รุ่นเริ่มต้น 🏁 — เครื่อง 6 สูบ 3.0L Turbo 387 แรงม้า แรงบิด 500 Nm, เกียร์อัตโนมัติ 8 จังหวะ, ขับเคลื่อนล้อหลัง 2 ที่นั่ง' },
+    { grade: 'GR Supra Track Edition', diff: '👑 รุ่นพิเศษส่งท้ายไลน์ผลิต: ชุดแต่งสปอร์ตเฉพาะรุ่น, ล้ออัลลอยพิเศษ, ตกแต่งภายใน Track Edition — ราคา 5,749,000 บาท' },
   ],
   fortuner_leader: [
     { grade: '2.4 Leader S', diff: 'รุ่นเริ่มต้น 🏁 — ดีเซล 2.4L AT, 7 ที่นั่ง, ระบบ TSS (PCS+LDA+ACC), ถุงลม 7 ใบ, จอ 8"' },
