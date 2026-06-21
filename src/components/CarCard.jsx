@@ -4,9 +4,11 @@ import { TECH_LABELS } from '../data/tech';
 import { GRADE_DESC } from '../data/gradeDesc';
 import { DESC } from '../data/desc';
 import { carImage } from '../data/carImages';
+import { VIDEO_MAP } from '../data/videos';
 import { IconFile, IconChevronDown, IconChevronUp } from './Icons';
 import TechDetail from './TechDetail';
 import GradeDetail from './GradeDetail';
+import YouTubeEmbed from './YouTubeEmbed';
 import './CarCard.css';
 
 const FUEL_CLASS = {
@@ -49,6 +51,7 @@ export default function CarCard({ code, car }) {
   const desc = DESC[code] || '';
   const typeIcon = TYPE_ICON[car.type] || '🚗';
   const img = carImage(code);
+  const video = VIDEO_MAP[code];
 
   return (
     <article className="car-card">
@@ -82,6 +85,13 @@ export default function CarCard({ code, car }) {
       </div>
 
       {desc && <div className="car-card-desc" dangerouslySetInnerHTML={{ __html: desc }} />}
+
+      {video && (
+        <div className="car-card-section">
+          <div className="car-card-section-title">🎬 คลิปวิดีโอ</div>
+          <YouTubeEmbed videoId={video.videoId} title={`คลิปวิดีโอ ${car.title}`} lang={video.lang} />
+        </div>
+      )}
 
       <div className="car-card-section">
         <div className="car-card-section-title">📋 ข้อมูลพื้นฐาน</div>

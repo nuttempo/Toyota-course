@@ -1,4 +1,5 @@
 import { IconX } from './Icons';
+import YouTubeEmbed from './YouTubeEmbed';
 import './Detail.css';
 
 export default function SafetyDetail({ system, onClose }) {
@@ -27,6 +28,9 @@ export default function SafetyDetail({ system, onClose }) {
             <div className="safety-detail-label">✅ ประโยชน์ที่ได้รับ</div>
             <p>{system.benefit}</p>
           </div>
+          {system.videoId && (
+            <YouTubeEmbed videoId={system.videoId} title={`คลิปสาธิต ${system.name}`} lang={system.videoLang} />
+          )}
         </div>
       </div>
     </div>

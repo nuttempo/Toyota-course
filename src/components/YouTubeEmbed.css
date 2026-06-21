@@ -1,0 +1,47 @@
+.yt-embed {
+  margin-top: var(--space-4);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000;
+}
+
+.yt-embed-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.yt-embed-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--white);
+  background: rgba(0, 0, 0, 0.25);
+  transition: background var(--duration-fast);
+}
+
+.yt-embed-thumb:hover .yt-embed-play { background: rgba(0, 0, 0, 0.4); }
+
+.yt-embed-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  display: block;
+}
+
+.yt-embed-caption {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  padding: var(--space-2) 0 0;
+}
+
+.yt-embed-lang { font-style: italic; }
