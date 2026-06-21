@@ -10,6 +10,8 @@ export const MODULES = [
   { id:104, title:'แบบทดสอบ Module 4', quizId:4, isQuiz:true },
   { id:5, title:'Van + GR', subtitle:'Hiace · Commuter · Majesty · GR Series', codes:['hiace','commuter','majesty','gr86','gryaris','grcorolla','grsupra'] },
   { id:105, title:'แบบทดสอบ Module 5', quizId:5, isQuiz:true },
-  { id:6, title:'เทคโนโลยี + สรุป', isSummary:true },
+  { id:6, title:'ระบบความปลอดภัย', subtitle:'VSC · TRC · TSS · ถุงลมนิรภัย และอีกมากมาย', isSafety:true },
+  { id:106, title:'แบบทดสอบ Module 6', quizId:6, isQuiz:true },
+  { id:7, title:'เทคโนโลยี + สรุป', isSummary:true },
   { id:99, title:'สำเร็จ!', isComplete:true },
 ];

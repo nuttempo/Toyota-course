@@ -30,5 +30,5 @@ export const DESC = {
   gr86: 'รถ <strong>Sports Coupe เครื่องยนต์กลางหน้า ขับเคลื่อนล้อหลัง (RWD)</strong> <span style="color:#2563eb;font-weight:500;">เครื่อง 2.4L Boxer 4 สูบนอน แรง 230 แรงม้า</span> ราคา 2,999,000 บาท — รถสปอร์ตเบา คล่องตัว สนุกในการขับขี่',
   gryaris: 'รถ <strong>Hot Hatch สมรรถนะสูง</strong> <span style="color:#2563eb;font-weight:500;">เครื่อง 1.6L Turbo 3 สูบ 261 แรงม้า ระบบขับเคลื่อน AWD</span> ราคา 3,499,000 บาท — เล็กแต่แรง เกิดจากเทคโนโลยี Rally',
   grcorolla: 'รถ <strong>Hot Hatch 5 ประตู</strong> <span style="color:#2563eb;font-weight:500;">เครื่อง 1.6L Turbo 3 สูบเดียวกับ GR Yaris แต่แรงกว่า 304 แรงม้า!</span> เกียร์ 8AT ระบบ AWD ราคา 4,199,000 บาท — เหมาะกับคนที่ต้องการ GR แต่มี 5 ที่นั่ง',
-  grsupra: 'รถ <strong>Sports Car ระดับตำนาน</strong> <span style="color:#2563eb;font-weight:500;">เครื่อง 3.0L Turbo 6 สูบ 382 แรงม้า ขับเคลื่อนล้อหลัง RWD</span> 0-100 ใน 4.1 วินาที! ราคาเริ่ม 5.34 ล้าน — รถสปอร์ต旗舰ของ Toyota',
+  grsupra: 'รถ <strong>Sports Car ระดับตำนาน</strong> <span style="color:#2563eb;font-weight:500;">เครื่อง 3.0L Turbo 6 สูบ 382 แรงม้า ขับเคลื่อนล้อหลัง RWD</span> 0-100 ใน 4.1 วินาที! ราคาเริ่ม 5.349 ล้าน — รถสปอร์ตเรือธงของ Toyota',
 };

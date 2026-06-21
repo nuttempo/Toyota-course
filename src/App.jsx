@@ -5,6 +5,7 @@ import TopBar from './components/TopBar';
 import Sidebar from './components/Sidebar';
 import Intro from './components/Intro';
 import Lesson from './components/Lesson';
+import Safety from './components/Safety';
 import QuizPage from './components/QuizPage';
 import Summary from './components/Summary';
 import Complete from './components/Complete';
@@ -44,7 +45,8 @@ export default function App() {
     const Component = cur === 0 ? Intro :
                      cur === 99 ? Complete :
                      mod?.isSummary ? Summary :
-                     mod?.isQuiz ? QuizPage : Lesson;
+                     mod?.isQuiz ? QuizPage :
+                     mod?.isSafety ? Safety : Lesson;
 
     const key = `slide-${cur}`;
 

@@ -8,7 +8,8 @@ function isQuizStep(id) {
 }
 
 export default function Sidebar({ open, currentId, onSelect, ans }) {
-  const lessons = MODULES.filter(m => !m.isIntro && !m.isComplete && !m.isQuiz);
+  const lessons = MODULES.filter(m => !m.isIntro && !m.isComplete && !m.isQuiz && !m.isSummary);
+  const summaryMod = MODULES.find(m => m.isSummary);
 
   const isComplete = (modId) => {
     const quiz = QUIZ[modId];
@@ -50,13 +51,15 @@ export default function Sidebar({ open, currentId, onSelect, ans }) {
               </button>
             );
           })}
-          <button
-            className={`sidebar-item ${currentId === 6 ? 'sidebar-item-active' : ''}`}
-            onClick={() => onSelect(6)}
-          >
-            <span className="sidebar-item-icon"><IconWrench /></span>
-            <span className="sidebar-item-label">เทคโนโลยี + สรุป</span>
-          </button>
+          {summaryMod && (
+            <button
+              className={`sidebar-item ${currentId === summaryMod.id ? 'sidebar-item-active' : ''}`}
+              onClick={() => onSelect(summaryMod.id)}
+            >
+              <span className="sidebar-item-icon"><IconWrench /></span>
+              <span className="sidebar-item-label">{summaryMod.title}</span>
+            </button>
+          )}
         </nav>
       </aside>
     </>

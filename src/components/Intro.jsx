@@ -3,7 +3,7 @@ import { CARS } from '../data/cars';
 import { QUIZ } from '../data/quiz';
 import './Intro.css';
 
-const MODULE_COUNT = 6;
+const MODULE_COUNT = 7;
 const CAR_COUNT = Object.keys(CARS).length;
 const QUIZ_COUNT = Object.values(QUIZ).reduce((sum, qs) => sum + qs.length, 0);
 const PDF_COUNT = 32;

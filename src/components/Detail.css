@@ -74,6 +74,25 @@
 
 .detail-body strong { color: var(--text-primary); }
 
+.safety-detail-fullname {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.safety-detail-section { margin-bottom: var(--space-4); }
+.safety-detail-section:last-child { margin-bottom: 0; }
+
+.safety-detail-label {
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.safety-detail-section p { margin: 0; }
+
 @media (min-width: 600px) {
   .detail-overlay { align-items: center; }
   .detail-popup { animation: scaleIn var(--duration-normal) var(--ease-out); }

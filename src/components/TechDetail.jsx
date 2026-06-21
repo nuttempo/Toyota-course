@@ -1,8 +1,8 @@
 import { IconX } from './Icons';
+import { TECH_DESC, TECH_LABELS } from '../data/tech';
 import './Detail.css';
 
 export default function TechDetail({ id, onClose }) {
-  const { TECH_DESC, TECH_LABELS } = require('../data/tech');
   const d = TECH_DESC[id];
   const t = TECH_LABELS[id];
   if (!d) return null;

@@ -40,6 +40,16 @@ export const QUIZ = {
     {q:'Majesty แบบ Grande ราคาเท่าไร?',opts:['1,994,000','2,250,000','2,339,000','2,500,000'],a:2},
   ],
   6:[
+    {q:'VSC ย่อมาจากอะไร และทำหน้าที่อะไร?',opts:['Vehicle Stability Control — ควบคุมการทรงตัว','Vehicle Speed Control — ควบคุมความเร็ว','Vehicle Safety Camera — กล้องนิรภัย','Variable Suspension Control — ปรับช่วงล่าง'],a:0},
+    {q:'TRC ทำงานเมื่อใด?',opts:['เมื่อเบรกหนัก','เมื่อล้อขับเคลื่อนหมุนฟรี/ลื่นไถล','เมื่อเปลี่ยนเลน','เมื่อจอดรถ'],a:1},
+    {q:'ระบบใดช่วยไม่ให้รถไหลถอยหลังตอนออกตัวบนทางขึ้นเนิน?',opts:['DAC','HAC','ABS','BSM'],a:1},
+    {q:'PCS (Pre-Collision System) ทำอะไร?',opts:['เตือนลมยางต่ำ','เบรกอัตโนมัติเมื่อเสี่ยงชน','อ่านป้ายจราจร','จอดรถอัตโนมัติ'],a:1},
+    {q:'ข้อใดไม่ใช่ส่วนหนึ่งของ Toyota Safety Sense (TSS)?',opts:['Lane Departure Alert','Adaptive Cruise Control','ISOFIX','Pre-Collision System'],a:2},
+    {q:'ISOFIX ใช้สำหรับอะไร?',opts:['ยึดคาร์ซีทเด็กให้แน่นมาตรฐานสากล','ยึดล้ออะไหล่','ล็อกประตูอัตโนมัติ','ยึดสัมภาระท้ายรถ'],a:0},
+    {q:'BSM (Blind Spot Monitor) ช่วยเรื่องอะไร?',opts:['เตือนรถในจุดบอดข้างรถ','เตือนลมยางต่ำ','ช่วยจอดรถ','เตือนคนเดินถนนด้านหน้า'],a:0},
+    {q:'EBD ในระบบเบรกทำหน้าที่อะไร?',opts:['เพิ่มแรงเบรกฉุกเฉิน','กระจายแรงเบรกแต่ละล้อให้เหมาะสม','ป้องกันล้อล็อก','ลดความเร็วอัตโนมัติ'],a:1},
+  ],
+  7:[
     {q:'เทคโนโลยี Toyota Safety Sense ไม่รวมอะไร?',opts:['Pre-Collision','Lane Departure','Adaptive Cruise','ซันรูฟ'],a:3},
     {q:'รถ Toyota ที่แพงที่สุดในคอร์สนี้คือ?',opts:['Alphard','GR Supra','GR Corolla','Land Cruiser FJ'],a:1},
     {q:'THS ย่อมาจากอะไร?',opts:['Toyota High System','Toyota Hybrid System','Turbo High Speed','Toyota Heavy Series'],a:1},

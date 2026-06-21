@@ -1,0 +1,46 @@
+.safety-section { margin-top: var(--space-7); }
+
+.safety-section-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+.safety-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-3);
+}
+
+.safety-card {
+  background: var(--surface-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: all var(--duration-fast);
+}
+
+.safety-card:hover {
+  border-color: var(--red);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.safety-card:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.safety-card-icon { font-size: 1.6rem; margin-bottom: var(--space-1); }
+.safety-card-name { font-weight: 700; font-size: var(--text-base); }
+.safety-card-short { font-size: var(--text-sm); color: var(--text-tertiary); line-height: 1.4; }
+
+@media (max-width: 600px) {
+  .safety-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+}

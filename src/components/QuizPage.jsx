@@ -11,8 +11,8 @@ export default function QuizPage({ mod, cur, ans, res, onPick, onGo }) {
     [quiz, ans, mod.quizId]
   );
 
-  const nextLabel = mod.quizId === 5 ? 'ดูสรุป' : 'Module ถัดไป';
-  const nextTarget = mod.quizId === 5 ? 6 : mod.quizId + 1;
+  const nextLabel = mod.quizId === 6 ? 'ดูสรุป' : 'Module ถัดไป';
+  const nextTarget = mod.quizId === 6 ? 7 : mod.quizId + 1;
 
   return (
     <div className="quizpage" style={{ animation: 'fadeIn 400ms cubic-bezier(0.16, 1, 0.3, 1)' }}>

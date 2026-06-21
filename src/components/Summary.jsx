@@ -11,16 +11,16 @@ function fmtPrice(n) {
   return (n / 1000).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + 'K';
 }
 
-function fuelTag(f) {
+function FuelTag({ fuel }) {
   const cls = { Gasoline: 'fuel-gas', Hybrid: 'fuel-hev', EV: 'fuel-ev', Diesel: 'fuel-diesel' };
-  return `<span class="fuel-tag ${cls[f] || ''}">${f}</span>`;
+  return <span className={`fuel-tag ${cls[fuel] || ''}`}>{fuel}</span>;
 }
 
 export default function Summary({ mod, cur, ans, res, onPick, onGo, onReset, totalQuestions, correctQuestions }) {
   const [techPopup, setTechPopup] = useState(null);
 
-  const quiz = QUIZ[6] || [];
-  const allAnswered = quiz.every((_, i) => ans['6-' + i] !== undefined);
+  const quiz = QUIZ[7] || [];
+  const allAnswered = quiz.every((_, i) => ans['7-' + i] !== undefined);
 
   return (
     <div className="summary" style={{ animation: 'fadeIn 400ms cubic-bezier(0.16, 1, 0.3, 1)' }}>
@@ -78,7 +78,7 @@ export default function Summary({ mod, cur, ans, res, onPick, onGo, onReset, tot
                     <td>{c.type}</td>
                     <td className="summary-table-bold">{c.title}</td>
                     <td>{fmtPrice(c.start_price)}</td>
-                    <td>{c.fuel.map(f => fuelTag(f)).join(' ')}</td>
+                    <td>{c.fuel.map(f => <FuelTag key={f} fuel={f} />)}</td>
                   </tr>
                 );
               })}
@@ -89,12 +89,12 @@ export default function Summary({ mod, cur, ans, res, onPick, onGo, onReset, tot
 
       {/* Final Quiz */}
       <div className="summary-card">
-        <Quiz modId={6} quiz={quiz} ans={ans} res={res} onPick={onPick} />
+        <Quiz modId={7} quiz={quiz} ans={ans} res={res} onPick={onPick} />
       </div>
 
       {/* Navigation */}
       <div className="summary-nav">
-        <button className="btn btn-outline" onClick={() => onGo(5)}><IconArrowLeft /> ก่อนหน้า</button>
+        <button className="btn btn-outline" onClick={() => onGo(6)}><IconArrowLeft /> ก่อนหน้า</button>
         <button
           className={`btn ${allAnswered ? 'btn-success' : 'btn-primary'}`}
           onClick={() => {
