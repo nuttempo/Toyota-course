@@ -6,6 +6,7 @@ export const GRADE_DESC = {
     { grade: 'Premium Luxury', diff: '👑 เพิ่ม: เบาะหนัง-ผ้า, ไฟตัดหมอก LED, กล้องบันทึก DVR, ลำโพง 4 ตำแหน่ง, ไฟเลี้ยว Sequential หลัง' },
     { grade: 'NIGHTSHADE', diff: '🖤 รุ่นพิเศษ Premium Luxury + แต่งดำทั้งคัน: หลังคาดำ กระจังหน้าดำ ล้ออัลลอยดำ กระจกมองข้างดำ — ราคาเท่า Premium Luxury' },
     { grade: 'HEV Premium', diff: '⚡ เปลี่ยนเป็น Hybrid 1.5L! + เกียร์ E-CVT + เบาะหนังแท้ + Wireless Charger + ระบบเบรกมือไฟฟ้า EPB + ไฟเลี้ยว Sequential หน้า + กล้อง 360° + ล้อ 17" — ประหยัดน้ำมันกว่า เงียบกว่า' },
+    { grade: 'HEV GR Sport', diff: '🏎️ รุ่นท็อปสุดสาย Hybrid! + ชุดแต่งดีไซน์สปอร์ต GR Sport รอบคัน, ล้ออัลลอยดีไซน์ GR, ช่วงล่างสปอร์ตปรับแต่งพิเศษ, ภายในเบาะหนังสลับหนังกลับพร้อมสัญลักษณ์ GR Sport' },
   ],
   altis: [
     { grade: '1.8G', diff: 'รุ่นเริ่มต้น 🏁 — เครื่องเบนซิน 1.8L เกียร์ CVT, ระบบ TSS ครบ (PCS+LDA+LKC+AHB+ACC), ถุงลม 7 ใบ, จอ 8" Apple CarPlay/Android Auto' },

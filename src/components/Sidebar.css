@@ -134,6 +134,51 @@
   animation: checkPulse var(--duration-normal) var(--ease-out);
 }
 
+.sidebar-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  margin-top: var(--space-3);
+  color: var(--text-tertiary);
+}
+
+.sidebar-search-input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  font-family: inherit;
+}
+
+.sidebar-search-input:focus {
+  outline: none;
+}
+
+.sidebar-category-group {
+  margin-top: var(--space-3);
+}
+
+.sidebar-category-title {
+  padding: var(--space-2) var(--space-5);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  letter-spacing: 0.5px;
+}
+
+.sidebar-no-results {
+  padding: var(--space-5);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
 @media (min-width: 1024px) {
   .sidebar {
     left: 0;

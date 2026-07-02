@@ -5,9 +5,12 @@ const STORAGE_KEY = 'toyota-course-progress';
 function loadState() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) return JSON.parse(saved);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (typeof parsed.cur === 'string') return parsed;
+    }
   } catch {}
-  return { cur: 0, ans: {}, res: {}, tq: 0, cq: 0 };
+  return { cur: 'yarisativ', ans: {}, res: {}, tq: 0, cq: 0 };
 }
 
 export function useProgress() {
@@ -39,7 +42,7 @@ export function useProgress() {
   }, []);
 
   const reset = useCallback(() => {
-    setState({ cur: 0, ans: {}, res: {}, tq: 0, cq: 0 });
+    setState({ cur: 'yarisativ', ans: {}, res: {}, tq: 0, cq: 0 });
   }, []);
 
   return { ...state, go, pickAnswer, reset };
