@@ -3,6 +3,7 @@ import { pdfUrls } from '../data/pdfMap';
 import { TECH_LABELS } from '../data/tech';
 import { GRADE_DESC } from '../data/gradeDesc';
 import { DESC } from '../data/desc';
+import { SALES_GUIDES } from '../data/salesGuides';
 import { carImage } from '../data/carImages';
 import { VIDEO_MAP } from '../data/videos';
 import { getGroupOfVariant } from '../data/groups';
@@ -55,6 +56,7 @@ export default function CarCard({ code, car, onSelectVariant }) {
   const rateInfo = getInterestRateForCode(code);
   const markupInfo = getInsuranceMarkupForCode(code);
   const adSpecialInfo = getAdSpecialRateForCode(code);
+  const salesGuide = SALES_GUIDES[code];
 
   return (
     <article className="car-card">
@@ -118,6 +120,41 @@ export default function CarCard({ code, car, onSelectVariant }) {
           ))}
         </div>
       </div>
+
+      {salesGuide && (
+        <div className="car-card-section" style={{ borderLeft: '4px solid var(--blue)', paddingLeft: 'var(--space-4)' }}>
+          <div className="car-card-section-title" style={{ color: 'var(--blue)' }}>💡 ข้อมูลแนะนำการขาย (สำหรับเซลล์ใหม่)</div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 'var(--space-4)', marginTop: 'var(--space-3)' }}>
+            <div style={{ background: 'var(--surface)', padding: 'var(--space-4)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
+              <strong style={{ display: 'block', marginBottom: 'var(--space-2)', color: 'var(--blue)', fontSize: '0.9rem' }}>🎯 กลุ่มลูกค้าเป้าหมาย (Target Audience)</strong>
+              <ul style={{ paddingLeft: 'var(--space-4)', margin: 0, fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                {salesGuide.target.map((t, idx) => <li key={idx}>{t}</li>)}
+              </ul>
+            </div>
+            
+            <div style={{ background: 'var(--surface)', padding: 'var(--space-4)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
+              <strong style={{ display: 'block', marginBottom: 'var(--space-2)', color: 'var(--green)', fontSize: '0.9rem' }}>✨ จุดขายหลักของรุ่น (Key Selling Points)</strong>
+              <ul style={{ paddingLeft: 'var(--space-4)', margin: 0, fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                {salesGuide.usp.map((u, idx) => <li key={idx}>{u}</li>)}
+              </ul>
+            </div>
+
+            <div style={{ background: 'var(--surface)', padding: 'var(--space-4)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
+              <strong style={{ display: 'block', marginBottom: 'var(--space-2)', color: 'var(--red)', fontSize: '0.9rem' }}>💬 สคริปต์การเสนอขาย / บทพูดแนะนำ (Sales Pitch)</strong>
+              <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6, fontStyle: 'italic' }}>
+                "{salesGuide.pitch}"
+              </p>
+            </div>
+
+            <div style={{ background: 'var(--surface)', padding: 'var(--space-4)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
+              <strong style={{ display: 'block', marginBottom: 'var(--space-2)', color: 'var(--orange)', fontSize: '0.9rem' }}>⚔️ จุดเด่นเมื่อเทียบกับคู่แข่ง (Vs. Competitors)</strong>
+              <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                {salesGuide.compare}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {car.techs.length > 0 && (
         <div className="car-card-section">
