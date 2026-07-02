@@ -6,7 +6,7 @@ import { DESC } from '../data/desc';
 import { carImage } from '../data/carImages';
 import { VIDEO_MAP } from '../data/videos';
 import { getGroupOfVariant } from '../data/groups';
-import { getInterestRateForCode, getInsuranceMarkupForCode, getAdSpecialRateForCode } from '../data/interestRates';
+import { getInterestRateForCode, getInsuranceMarkupForCode, getAdSpecialRateForCode, get96MonthRate } from '../data/interestRates';
 import { IconFile } from './Icons';
 import TechDetail from './TechDetail';
 import YouTubeEmbed from './YouTubeEmbed';
@@ -202,18 +202,23 @@ export default function CarCard({ code, car, onSelectVariant }) {
                     <th>60 เดือน</th>
                     <th>72 เดือน</th>
                     <th>84 เดือน</th>
+                    <th>96 เดือน</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {rateInfo.standard.map((r, i) => (
-                    <tr key={i}>
-                      <td><strong>{r.down}</strong></td>
-                      <td>{r.m48}</td>
-                      <td>{r.m60}</td>
-                      <td>{r.m72}</td>
-                      <td>{r.m84}</td>
-                    </tr>
-                  ))}
+                  {rateInfo.standard.map((r, i) => {
+                    const m96Value = get96MonthRate(code, r.down);
+                    return (
+                      <tr key={i}>
+                        <td><strong>{r.down}</strong></td>
+                        <td>{r.m48}</td>
+                        <td>{r.m60}</td>
+                        <td>{r.m72}</td>
+                        <td>{r.m84}</td>
+                        <td style={m96Value !== '—' ? { color: 'var(--blue)', fontWeight: 600 } : {}}>{m96Value}</td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

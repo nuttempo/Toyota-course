@@ -326,3 +326,37 @@ const AD_SPECIAL_RATES = {
 export function getAdSpecialRateForCode(code) {
   return AD_SPECIAL_RATES[code] || null;
 }
+
+export function get96MonthRate(code, down) {
+  // Group A: Yaris Cross, bZ4X (listed in group A column)
+  if (code === 'yariscross' || code === 'yariscross_nightshade' || code === 'bz4x') {
+    if (down === '15%') return '4.75%';
+    if (down === '20%') return '4.29%';
+    if (down === '25%') return '4.19%';
+  }
+  
+  // Group B: Fortuner, Land Cruiser FJ
+  if (code.startsWith('fortuner_') || code === 'landcruiser_fj') {
+    if (down === '15%') return '4.69%';
+    if (down === '20%') return '4.25%';
+    if (down === '25%') return '4.09%';
+  }
+
+  // Group C: Revo 4x4 & 4TREX
+  const isGroupCRevo4x4 = ['hilux_revo_standard', 'hilux_revo_zedition', 'hilux_travo_standard_4trex', 'hilux_travo_prerunner_4trex', 'hilux_travo_overland'].includes(code);
+  if (isGroupCRevo4x4) {
+    if (down === '15%') return '5.69%';
+    if (down === '20%') return '5.15%';
+    if (down === '25%') return '4.99%';
+  }
+
+  // Group D: Revo D-Cab 4x4 & 4TREX
+  const isGroupDRevo4x4 = ['hilux_travo_e'].includes(code);
+  if (isGroupDRevo4x4) {
+    if (down === '15%') return '5.35%';
+    if (down === '20%') return '4.85%';
+    if (down === '25%') return '4.59%';
+  }
+
+  return '—';
+}
